@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Esports Hub - Rankings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="riot-header">
+        <div class="logo">ESPORTS<span>HUB</span></div>
+        <nav class="riot-nav">
+            <a href="index.html">Início</a>
+            <a href="jogadores.html">Elencos</a>
+            <a href="comparacao.html">Comparação</a>
+            <a href="ranking.html" class="active">Rankings</a>
+            <a href="clipes.html">Clipes</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Ranking Geral de Organizações</h1>
+
+        <div class="filter-group" style="max-width: 300px; margin-bottom: 20px;">
+            <label for="ranking-filtro-jogo">Selecione a Modalidade</label>
+            <select id="ranking-filtro-jogo" class="filter-control"></select>
+        </div>
+
+        <table id="ranking-table" class="ranking-table">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Organização</th>
+                    <th>Modalidade</th>
+                    <th>Pontuação Global</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+    <script src="jogadores-script.js"></script>
+</body>
+</html>

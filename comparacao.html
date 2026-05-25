@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Esports Hub - Comparação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="riot-header">
+        <div class="logo">ESPORTS<span>HUB</span></div>
+        <nav class="riot-nav">
+            <a href="index.html">Início</a>
+            <a href="jogadores.html">Elencos</a>
+            <a href="comparacao.html" class="active">Comparação</a>
+            <a href="ranking.html">Rankings</a>
+            <a href="clipes.html">Clipes</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Comparação de Pro-Players</h1>
+
+        <div class="comparacao-container">
+            <div class="seletores-flex">
+                <div class="select-box">
+                    <label for="player1">Jogador 1</label>
+                    <select id="player1" class="filter-control"></select>
+                </div>
+                
+                <div class="vs-divider">VS</div>
+                
+                <div class="select-box">
+                    <label for="player2">Jogador 2</label>
+                    <select id="player2" class="filter-control">
+                        <option value="">Selecione o Jogador 1 primeiro</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="btn-comparar" class="btn-comparar">Executar Comparação</button>
+
+            <div id="resultado-comparacao"></div>
+        </div>
+    </main>
+
+    <script src="jogadores-script.js"></script>
+</body>
+</html>

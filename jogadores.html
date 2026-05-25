@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Esports Hub - Elencos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="riot-header">
+        <div class="logo">ESPORTS<span>HUB</span></div>
+        <nav class="riot-nav">
+            <a href="index.html">Início</a>
+            <a href="jogadores.html" class="active">Elencos</a>
+            <a href="comparacao.html">Comparação</a>
+            <a href="ranking.html">Rankings</a>
+            <a href="clipes.html">Clipes</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Jogadores e Elencos</h1>
+        
+        <div class="layout-filtros">
+            <aside class="sidebar-filtros">
+                <h3>Filtros Disponíveis</h3>
+                <div class="filter-group">
+                    <label for="filtro-jogo">Filtrar por Jogo</label>
+                    <select id="filtro-jogo" class="filter-control"></select>
+                </div>
+                <div class="filter-group">
+                    <label for="filtro-time">Filtrar por Time</label>
+                    <select id="filtro-time" class="filter-control"></select>
+                </div>
+            </aside>
+
+            <section id="jogadores-container" class="jogadores-grid"></section>
+        </div>
+    </main>
+
+    <script src="jogadores-script.js"></script>
+</body>
+</html>
