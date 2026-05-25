@@ -1,469 +1,287 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
 :root {
     --riot-red: #ff4655;
     --riot-dark: #0f1923;
-    --riot-darker: #080e14;
-    --riot-card: #1f2933;
     --text-white: #ece8e1;
-    --text-muted: #7e8b96;
-    --success: #10b981;
+    --bg-card: #1f2326;
+    --bg-footer: #0b1116;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body, html {
-    height: 100%;
     background: var(--riot-dark);
     font-family: 'Roboto', sans-serif;
     color: var(--text-white);
-    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Header de Navegação Fixo e Consistente */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- MENU SUPERIOR (HEADER) --- */
 .riot-header {
     height: 80px;
     background: #111;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
+    justify-content: space-between;
 }
 
-.logo {
+.logo a {
+    color: var(--riot-red);
     font-size: 24px;
     font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--text-white);
-}
-
-.logo span {
-    color: var(--riot-red);
-}
-
-.riot-nav {
-    display: flex;
-    gap: 30px;
-}
-
-.riot-nav a {
-    color: var(--text-muted);
     text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 14px;
     letter-spacing: 1px;
-    transition: color 0.3s ease, border-color 0.3s ease;
-    padding: 10px 0;
+    padding: 5px 0;
+    transition: 0.3s;
     border-bottom: 2px solid transparent;
 }
 
-.riot-nav a:hover, .riot-nav a.active {
+.nav-menu a:hover, .nav-menu a.active {
     color: var(--riot-red);
     border-bottom-color: var(--riot-red);
 }
 
-/* Container Principal */
-.container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-h1.page-title {
-    font-size: 36px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    border-left: 5px solid var(--riot-red);
-    padding-left: 15px;
-}
-
-/* Home Page (index.html) */
+/* --- PÁGINA INICIAL (INDEX) --- */
 .hero-section {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(180s, #111 0%, var(--riot-dark) 100%);
-    border-radius: 8px;
-    margin-bottom: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(rgba(15, 25, 35, 0.75), rgba(15, 25, 35, 0.95)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1470&auto=format&fit=crop') no-repeat center center/cover;
+    padding: 20px;
 }
 
-.hero-section h2 {
-    font-size: 48px;
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-.hero-section p {
-    color: var(--text-muted);
+.hero-content span {
+    color: var(--riot-red);
+}
+
+.hero-content p {
     font-size: 18px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
+    color: #ccc;
 }
 
-.grid-home {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card-home {
-    background: var(--riot-card);
-    padding: 30px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    cursor: pointer;
+.btn-primary {
+    display: inline-block;
+    background: var(--riot-red);
+    color: white;
     text-decoration: none;
-    color: inherit;
-}
-
-.card-home:hover {
-    transform: translateY(-5px);
-    border-color: var(--riot-red);
-}
-
-.card-home h3 {
-    font-size: 22px;
+    padding: 15px 35px;
+    font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 12px;
-    color: var(--text-white);
-}
-
-.card-home p {
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* Interface de Filtros e Elencos (jogadores.html) */
-.layout-filtros {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 30px;
-}
-
-.sidebar-filtros {
-    background: var(--riot-card);
-    padding: 25px;
-    border-radius: 6px;
-    height: fit-content;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.sidebar-filtros h3 {
-    text-transform: uppercase;
-    font-size: 16px;
-    margin-bottom: 20px;
     letter-spacing: 1px;
+    border: 1px solid var(--riot-red);
+    transition: 0.3s;
 }
 
-.filter-group {
-    margin-bottom: 20px;
+.btn-primary:hover {
+    background: transparent;
+    color: var(--riot-red);
 }
 
-.filter-group label {
-    display: block;
-    font-size: 12px;
+/* --- PÁGINA DE JOGADORES (GRID) --- */
+.jogadores-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 36px;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.filter-control {
-    width: 100%;
-    background: var(--riot-darker);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
-    padding: 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    outline: none;
-    cursor: pointer;
-}
-
-.filter-control:focus {
-    border-color: var(--riot-red);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: var(--riot-red);
+    text-align: center;
 }
 
 .jogadores-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .jogador-card {
-    background: var(--riot-card);
-    border-radius: 6px;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 35px 20px;
+    border-radius: 4px;
     text-align: center;
+    transition: 0.3s;
+}
+
+.jogador-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--riot-red);
+}
+
+.jogador-card img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--riot-dark);
+    border: 3px solid var(--riot-red);
+    margin-bottom: 20px;
 }
 
 .jogador-card h3 {
-    font-size: 20px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    letter-spacing: 1px;
 }
 
-.tag-time {
-    font-size: 12px;
+.jogador-card .funcao {
     color: var(--riot-red);
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.jogador-card .pais {
+    font-size: 13px;
+    color: #888;
     margin-bottom: 15px;
 }
 
-.stats-box {
-    background: var(--riot-darker);
-    padding: 12px;
-    border-radius: 4px;
-    text-align: left;
-}
-
-.stats-box p {
-    font-size: 13px;
-    margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.stats-box p:last-child {
-    margin-bottom: 0;
-}
-
-.stats-box strong {
-    color: var(--text-muted);
-}
-
-/* Módulo de Comparação (comparacao.html) */
-.comparacao-container {
-    background: var(--riot-card);
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.seletores-flex {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 40px;
-}
-
-.select-box {
-    flex: 1;
-}
-
-.select-box label {
-    display: block;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-.vs-divider {
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--riot-red);
-    margin-top: 20px;
-}
-
-.btn-comparar {
-    width: 100%;
-    background: var(--riot-red);
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn-comparar:hover {
-    background: #e23b48;
-}
-
-/* Painel de Resultados Versus */
-.comparacao-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    background: var(--riot-darker);
-    padding: 25px;
-    border-radius: 6px;
-    margin-top: 30px;
-}
-
-.col-jogador {
-    flex: 1;
-}
-
-.col-jogador h3 {
-    font-size: 28px;
-    text-transform: uppercase;
-    color: var(--text-white);
-}
-
-.col-jogador .subtitle {
-    color: var(--riot-red);
+.jogador-card .bio {
     font-size: 14px;
-    font-weight: bold;
+    line-height: 1.6;
+    color: #ccc;
 }
 
-.col-vs {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--text-muted);
-    padding: 0 20px;
+/* --- PÁGINA DE VÍDEOS --- */
+.videos-section {
+    padding: 60px 0;
 }
 
-.metricas-comparacao-lista {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.linha-metrica {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--riot-darker);
-    padding: 15px 25px;
-    border-radius: 4px;
-}
-
-.valor-stat {
-    font-size: 18px;
-    font-weight: bold;
-    width: 80px;
-}
-
-.valor-stat.left { text-align: left; }
-.valor-stat.right { text-align: right; }
-
-.vencedor-stat {
-    color: var(--success);
-    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
-}
-
-.nome-metrica {
-    font-size: 14px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* Módulo de Classificação (ranking.html) */
-.ranking-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--riot-card);
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 20px;
-}
-
-.ranking-table th, .ranking-table td {
-    padding: 18px 25px;
-    text-align: left;
-}
-
-.ranking-table th {
-    background: #111;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-}
-
-.ranking-table tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.ranking-table tr:last-child {
-    border-bottom: none;
-}
-
-.pontos-badge {
-    background: var(--riot-darker);
-    padding: 6px 12px;
-    border-radius: 20px;
-    color: var(--riot-red);
-    font-weight: bold;
-    border: 1px solid rgba(255, 70, 85, 0.2);
-}
-
-/* Módulo de Multimídia (clipes.html) */
-.clipes-grid {
+.videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 25px;
+    gap: 30px;
 }
 
-.clipe-card {
-    background: var(--riot-card);
-    border-radius: 6px;
+.video-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--riot-red);
 }
 
 .video-container {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: var(--riot-darker);
     position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Mantém proporção 16:9 perfeita */
+    height: 0;
 }
 
-.video-placeholder {
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-muted);
-    font-size: 14px;
-    text-transform: uppercase;
+    border: none;
 }
 
-.clipe-info {
+.video-info {
     padding: 20px;
 }
 
-.clipe-info h3 {
-    font-size: 18px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.clipe-info p {
-    color: var(--text-muted);
-    font-size: 13px;
-}
-
-.alert-danger {
+.video-info .tag {
+    display: inline-block;
     background: rgba(255, 70, 85, 0.1);
-    border: 1px solid var(--riot-red);
     color: var(--riot-red);
-    padding: 15px;
-    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.video-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* --- RODAPÉ --- */
+.riot-footer {
+    background: var(--bg-footer);
+    padding: 30px 20px;
     text-align: center;
-    font-weight: bold;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 60px;
+}
+
+.riot-footer strong {
+    color: var(--riot-red);
+}
+
+/* --- ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS --- */
+@media (max-width: 768px) {
+    .riot-header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
 }
